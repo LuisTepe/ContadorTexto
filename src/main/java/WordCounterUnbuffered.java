@@ -1,14 +1,13 @@
 import java.io.*;
 
 public class WordCounterUnbuffered {
-    public static void main(String args[]) {
 
-        if (args.length == 0) {
-            System.out.println("Falta el nombre del archivo");
-            System.exit(1);
-        }
+    public WordCounterUnbuffered(){
 
-        String fileName = args[0];
+    }
+
+    public void counterTokenizerUnbuffered(){
+        String fileName = "divina_comedia.txt";
 
         FileReader fileReader = null;
 
@@ -46,7 +45,8 @@ public class WordCounterUnbuffered {
         }
         // tiempo de procesamiento
         long time = System.currentTimeMillis() - start;
-
+        System.out.println("");
+        System.out.println("Tokenizer Unbuffered");
         System.out.printf("El archivo %s tiene %,7d palabras. " , fileName, contadorPalabras );
         System.out.printf(" Numero de lineas: %,6d%n", st.lineno() );
         System.out.printf("Tiempo procesamiento (milisegundos): %d %n" , time);

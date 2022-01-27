@@ -1,11 +1,8 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class MainApp {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         if (args.length == 0) {
             System.out.println("Falta el nombre del archivo");
@@ -27,16 +24,15 @@ public class MainApp {
 
         String textLine = null;
         int contador = 0;
-
-        try {
-            while ((textLine = in.readLine()) != null) {
-                contador++;
+        while (true) {
+            try {
+                if (!((textLine = in.readLine()) != null)) break;
+            } catch (IOException e) {
+                System.out.println("Error al leer el archivo");
+                System.exit(3);
             }
-        } catch (IOException e) {
-            System.out.println("Error al leer el archivo de entrada");
-            System.exit(3);
+            contador++;
         }
-
 
         try {
             in.close();
